@@ -46,6 +46,11 @@ lengthNumber.addEventListener("blur", () => {
 // --- Validation ---
 // Check if at least one character type is selected
 // ==============================
+
+/**
+ * Checks if at least one character type is selected.
+ * @returns {boolean}
+ */
 function validOption() {
     const selected = includeLowercaseElement.checked || includeUppercaseElement.checked ||
                      includeNumbersElement.checked || includeSymbolsElement.checked;
@@ -64,6 +69,11 @@ function validOption() {
 // --- Generate password ---
 // Validates options, creates password, and animates masked display
 // ==============================
+
+/**
+ * Generates a random password based on user-selected criteria.
+ * @returns {Promise<void>}
+ */
 async function generatePassword() {
     if (!validOption()) return;
 
@@ -92,6 +102,12 @@ async function generatePassword() {
 // --- Animate masked password ---
 // Display password as random characters before showing masked version
 // ==============================
+
+/**
+ * Animates the display of the password by showing random characters before revealing the actual password.
+ * @param {string} password - The actual password to display.
+ * @param {string} maskChar - The character used to mask the password.
+ */
 async function animatePasswordDisplay(password, maskChar) {
     passwordElement.textContent = "";
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
@@ -118,6 +134,12 @@ async function animatePasswordDisplay(password, maskChar) {
 // --- Utility ---
 // Sleep for async animations
 // ==============================
+
+/**
+ * Sleeps for a specified duration.
+ * @param {number} ms - The duration to sleep in milliseconds.
+ * @returns {Promise<void>}
+ */
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -126,6 +148,16 @@ function sleep(ms) {
 // --- Create password ---
 // Generate password based on selected options
 // ==============================
+
+/**
+ * Generates a random password based on user-selected criteria.
+ * @param {number} length - The length of the password.
+ * @param {boolean} includeLowercase - Whether to include lowercase letters.
+ * @param {boolean} includeUppercase - Whether to include uppercase letters.
+ * @param {boolean} includeNumbers - Whether to include numbers.
+ * @param {boolean} includeSymbols - Whether to include symbols.
+ * @returns {string} - The generated password.
+ */
 function createPassword(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
     const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
     const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -171,15 +203,25 @@ function createPassword(length, includeLowercase, includeUppercase, includeNumbe
 // ==============================
 // --- Copy to clipboard ---
 // ==============================
+/**
+ * Copies the generated password to the clipboard.
+ * @returns {Promise<void>}
+ */
 function copyPassword() {
     if (!actualPassword) return;
-    navigator.clipboard.writeText(actualPassword).then(() => showMessage("Password copied to clipboard"));
+    return navigator.clipboard.writeText(actualPassword).then(() => showMessage("Password copied to clipboard"));
 }
 
 // ==============================
 // --- Show temporary message ---
 // Displays confirmation message for a short time
 // ==============================
+
+/**
+ * Shows a temporary message on the screen.
+ * @param {string} text - The message text to display.
+ * @param {number} duration - The duration to display the message (in milliseconds).
+ */
 function showMessage(text, duration = 3000) {
     const msg = document.getElementById("copied-message");
     msg.textContent = text;
@@ -190,6 +232,11 @@ function showMessage(text, duration = 3000) {
 // ==============================
 // --- Toggle password visibility ---
 // ==============================
+/**
+ * Toggles the visibility of the generated password.
+ * @param {Event} event - The event object.
+ * @returns {void}
+ */
 function togglePasswordVisibility(event) {
     event.preventDefault();
     if (!actualPassword) return;
