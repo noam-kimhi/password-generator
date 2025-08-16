@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <!-- Link to main CSS file -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+  </head>
+  <body>
+    <!-- Main form container -->
+    <form>
+      <!-- Page title with logo -->
+      <h1>
+        <img
+          src="images/favicon.png"
+          alt="Lock Logo"
+          width="90"
+          height="90"
+        /><br />
+        Password Generator
+      </h1>
+
+      <!-- Password length controls -->
+      <div class="password-length">
+        <label for="length-number">Password Length</label>
+        <input
+          type="number"
+          id="length-number"
+          min="4"
+          max="25"
+          value="6"
+          style="width: 50px"
+        />
+        <input type="range" id="length-slider" min="4" max="25" value="6" />
+      </div>
+
+      <!-- Character type checkboxes with lock icons -->
+      <div class="checkboxes">
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            checked
+            id="IncludeLowercase"
+            class="checkbox"
+            hidden
+          />
+          <img src="images/locked.png" alt="Lock" class="lock-icon" />
+          <span> Include Lowercase </span>
+        </label>
+
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            id="IncludeUppercase"
+            class="checkbox"
+            hidden
+          />
+          <img src="images/unlocked.png" alt="Lock" class="lock-icon" />
+          <span> Include Uppercase </span>
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="IncludeNumbers" class="checkbox" hidden />
+          <img src="images/unlocked.png" alt="Lock" class="lock-icon" />
+          <span> Include Numbers </span>
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="IncludeSymbols" class="checkbox" hidden />
+          <img src="images/unlocked.png" alt="Lock" class="lock-icon" />
+          <span> Include Symbols </span>
+        </label>
+      </div>
+
+      <!-- Generate password button -->
+      <button type="button" id="generate" onclick="generatePassword()">
+        Generate Password
+      </button>
+
+      <!-- Temporary copy message -->
+      <div id="copied-message" class="hidden">
+        Password copied to clipboard!
+      </div>
+
+      <!-- Password display box -->
+      <div id="password-box">
+        <span id="password"></span>
+      </div>
+
+      <!-- Password option buttons: copy & toggle visibility -->
+      <div id="password-options">
+        <button type="button" id="copy" onclick="copyPassword()"></button>
+        <button
+          type="button"
+          id="show-password"
+          onclick="togglePasswordVisibility()"
+        ></button>
+      </div>
+    </form>
+
+    <!-- Main JS file -->
+    <script src="index.js"></script>
+  </body>
+</html>

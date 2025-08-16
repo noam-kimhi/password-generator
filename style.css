@@ -1,0 +1,346 @@
+/* =======================
+   Font Definitions
+   ======================= */
+
+/* Regular Font */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('fonts/Ubuntu-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Bold Font */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('fonts/Ubuntu-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Italic Font */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('fonts/Ubuntu-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* =======================
+   Body & Form Styles
+   ======================= */
+body {
+    font-family: 'Ubuntu', Calibri, sans-serif;
+    background-color: hsl(246, 42%, 13%);
+    background: linear-gradient(180deg, hsl(248, 45%, 36%), hsl(245, 53%, 9%));
+    color: #ffffff;
+    font-weight: bold;
+    padding: 20px;       /* spacing inside body */
+    margin: 0;           /* remove default margin */
+    min-height: 100vh;   /* body fills full viewport height */
+}
+
+/* General font for headings, inputs, labels */
+h1, body, input, label {
+    font-family: 'Ubuntu', 'Calibri', sans-serif;
+}
+
+/* Page title */
+h1 {
+    color: hsl(246, 42%, 93%);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Main form container */
+form {
+    max-width: 500px;
+    font-size: 1.5em;
+    text-align: left;
+    padding: 20px;
+    border-radius: 40px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, hsl(246, 34%, 45%), hsl(246, 58%, 39%));
+}
+
+/* =======================
+   Password Length Inputs
+   ======================= */
+#length-number {
+    background-color: rgba(255, 255, 255, 0.172);
+    width: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-bottom: 30px; /* spacing between password length and checkboxes */
+    font-size: 22px;
+    color: hsl(240, 100%, 95%);
+    font-weight: bold;
+}
+
+/* =======================
+   Slider Styles
+   ======================= */
+#length-slider {
+    -webkit-appearance: none; /* remove default slider styling (Chrome, Safari, Edge) */
+    appearance: none;         /* standard property for other browsers */
+    width: 150px;
+    height: 12px;
+    border-radius: 6px;
+    outline: none;
+    margin-left: 10px;
+    background: linear-gradient(90deg, hsl(31, 93%, 11%), hsl(31, 100%, 61%));
+    transition: background 0.3s ease;
+}
+
+
+/* Slider thumb for Webkit browsers */
+#length-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 28px;
+    height: 28px;
+    background: hsl(246, 42%, 93%);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid hsl(246, 42%, 80%);
+    box-shadow: 0 0 8px hsl(246, 42%, 93%), 0 2px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+#length-slider::-webkit-slider-thumb:hover {
+    background: hsl(246, 42%, 85%);
+    box-shadow: 0 0 12px hsl(246, 42%, 93%), 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Slider thumb for Firefox */
+#length-slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    background: hsl(246, 42%, 93%);
+    border-radius: 50%;
+    border: 2px solid hsl(246, 42%, 80%);
+    cursor: pointer;
+    box-shadow: 0 0 8px hsl(246, 42%, 93%), 0 2px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+#length-slider::-moz-range-thumb:hover {
+    background: hsl(246, 42%, 85%);
+    box-shadow: 0 0 12px hsl(246, 42%, 93%), 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Firefox track */
+#length-slider::-moz-range-track {
+    height: 12px;
+    background: linear-gradient(90deg, hsl(246, 58%, 39%), hsl(246, 34%, 45%));
+    border-radius: 6px;
+}
+
+/* Slider thumb for IE/Edge */
+#length-slider::-ms-thumb {
+    width: 28px;
+    height: 28px;
+    background: hsl(246, 42%, 93%);
+    border-radius: 50%;
+    border: 2px solid hsl(246, 42%, 80%);
+    cursor: pointer;
+}
+
+#length-slider::-ms-track {
+    width: 100%;
+    height: 12px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+/* =======================
+   Checkbox Styles
+   ======================= */
+label.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;  /* spacing between checkboxes */
+    font-weight: normal;
+    color: hsl(243, 100%, 92%);
+}
+
+/* Checkbox hidden but still clickable through JS */
+label.checkbox-label input[type="checkbox"] {
+    margin-right: 8px;
+    
+    
+}
+
+/* Hover effect for text */
+label.checkbox-label span:hover {
+    color: hsl(255, 100%, 99%);
+    cursor: pointer;
+}
+
+/* Lock icon next to checkbox */
+.lock-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.lock-icon:hover {
+    transform: scale(1.1);
+}
+
+/* =======================
+   Buttons
+   ======================= */
+
+/* Generate password button */
+#generate {
+    background: linear-gradient(145deg, hsl(246, 42%, 93%), hsl(246, 38%, 85%));
+    color: hsl(246, 42%, 13%);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto; /* spacing above and below */
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+    font-family: 'Ubuntu', 'Calibri', sans-serif;
+
+    /* Shadow for depth */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect: pop-up and lighten */
+#generate:hover {
+    background: linear-gradient(145deg, hsl(246, 45%, 96%), hsl(246, 40%, 88%));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.35), 0 2px 4px rgba(0,0,0,0.25);
+}
+
+/* Active effect: press down */
+#generate:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.2);
+    background: linear-gradient(145deg, hsl(246, 38%, 85%), hsl(246, 34%, 78%));
+}
+
+/* =======================
+   Password Box & Messages
+   ======================= */
+#password-box {
+    background-color: hsl(246, 57%, 14%);
+    width: 95%;
+    min-width: 120px;
+    min-height: 35px;
+    padding: 18px 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 15px auto; /* spacing above/below password box */
+}
+
+#password {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Fira Code', monospace;
+    color: hsl(246, 42%, 93%);
+    display: block;
+    text-align: center;
+}
+
+#copied-message {
+    position: fixed;             
+    bottom: 3%;                     
+    left: 50%;                    
+    transform: translateX(-50%);
+    color: hsl(246, 42%, 93%);
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 25px;
+    
+    /* Gradient background for modern look */
+    background: linear-gradient(135deg, hsla(246, 42%, 35%, 0.85), hsla(246, 42%, 50%, 0.85));
+    
+    border-radius: 12px;
+    
+    /* Subtle shadow for depth */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+    
+    opacity: 0;                 /* hidden initially */
+    pointer-events: none;
+    
+    /* Smooth transition for fade */
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 100;
+}
+
+/* Show message with slight pop-up animation */
+#copied-message.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* =======================
+   Password Option Buttons
+   ======================= */
+#password-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 15px 0; /* spacing above/below icons */
+}
+
+/* Copy button */
+#copy {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: url('images/copy.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#copy:hover {
+    background-image: url('images/copy-hover.png');
+}
+
+/* Show/hide password button */
+#show-password {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Default off */
+#show-password.off {
+    background-image: url('images/visibility-off.png');
+}
+
+#show-password.off:hover {
+    background-image: url('images/visibility-off-hover.png');
+}
+
+/* Visible on */
+#show-password.on {
+    background-image: url('images/visibility-on.png');
+}
+
+#show-password.on:hover {
+    background-image: url('images/visibility-on-hover.png');
+}
