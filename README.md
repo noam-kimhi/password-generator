@@ -11,7 +11,7 @@ It allows you to quickly create secure passwords with customizable length and ch
 
 ## 🚀 Getting Started
 ### Running locally
-1. Clone the repository:
+Clone the repository:
    ```bash
    git clone https://github.com/noam-kimhi/password-generator.git
    cd password-generator
