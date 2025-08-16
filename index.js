@@ -10,6 +10,7 @@ const includeLowercaseElement = document.getElementById("IncludeLowercase");
 const includeUppercaseElement = document.getElementById("IncludeUppercase");
 const includeNumbersElement = document.getElementById("IncludeNumbers");
 const includeSymbolsElement = document.getElementById("IncludeSymbols");
+const form = document.querySelector("form");
 
 // ==============================
 // --- State Variables ---
@@ -22,8 +23,24 @@ showPasswordButton.classList.add("off");
 // --- Sync slider and number input ---
 // Ensures changes in one input reflect in the other
 // ==============================
-lengthSlider.addEventListener("input", () => lengthNumber.value = lengthSlider.value);
-lengthNumber.addEventListener("input", () => lengthSlider.value = lengthNumber.value);
+// Keep slider and number input in sync while typing
+lengthNumber.addEventListener("input", () => {
+    lengthSlider.value = lengthNumber.value;
+});
+
+lengthSlider.addEventListener("input", () => {
+    lengthNumber.value = lengthSlider.value;
+});
+
+// Clamp number only when user leaves the input (blur)
+lengthNumber.addEventListener("blur", () => {
+    let val = parseInt(lengthNumber.value);
+    if (isNaN(val)) val = 6; // default
+    if (val < 4) val = 4;
+    if (val > 25) val = 25;
+    lengthNumber.value = val;
+    lengthSlider.value = val;
+});
 
 // ==============================
 // --- Validation ---
@@ -213,4 +230,9 @@ lockCheckboxes.forEach(cb => {
         cb.checked = !cb.checked;
         lockIcon.src = cb.checked ? 'images/locked.png' : 'images/unlocked.png';
     });
+});
+
+// Prevent Enter from submitting the form and resetting values
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 });
