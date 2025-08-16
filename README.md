@@ -9,6 +9,9 @@ It allows you to quickly create secure passwords with customizable length and ch
 - **Copy to Clipboard**: Easily copy generated passwords with one click.
 - **Toggle Visibility**: Show or hide the password instantly.
 
+## 🌐 Use Online
+Hop on: [*Password Generator Online*](https://noam-kimhi.github.io/password-generator/)
+
 ## 🚀 Getting Started
 ### Running locally
 Clone the repository:
