@@ -278,8 +278,3 @@ lockCheckboxes.forEach(cb => {
         lockIcon.src = cb.checked ? 'images/locked.png' : 'images/unlocked.png';
     });
 });
-
-// Prevent Enter from submitting the form and resetting values
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-});

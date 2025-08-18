@@ -40,6 +40,11 @@ body {
     min-height: 100vh;   /* body fills full viewport height */
 }
 
+html {
+    height: 100%;
+    overflow-y: hidden; /* Prevent vertical scrollbar */
+}
+
 /* General font for headings, inputs, labels */
 h1, body, input, label {
     font-family: 'Ubuntu', 'Calibri', sans-serif;
@@ -52,8 +57,8 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Main form container */
-form {
+/* Main screen container */
+#main-screen {
     max-width: 500px;
     font-size: 1.5em;
     text-align: left;
@@ -169,13 +174,16 @@ label.checkbox-label {
 /* Checkbox hidden but still clickable through JS */
 label.checkbox-label input[type="checkbox"] {
     margin-right: 8px;
-    
-    
+}
+
+/* Smooth transition for text color */
+label.checkbox-label span {
+    transition: color 0.3s ease;
 }
 
 /* Hover effect for text */
 label.checkbox-label span:hover {
-    color: hsl(255, 100%, 99%);
+    color: hsl(28, 71%, 59%);
     cursor: pointer;
 }
 
@@ -185,7 +193,6 @@ label.checkbox-label span:hover {
     height: 28px;
     margin-right: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease;
 }
 
 .lock-icon:hover {
